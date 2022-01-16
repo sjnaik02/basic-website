@@ -7,28 +7,33 @@ body{
     height: 100vh;
     width: 100vw;
     display: flex;
+    margin-left: 6.25%;
 }
 .hero-txt{
-    padding: 0px 10%;
-    width: 45%;
+    width: 40%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: white;
 }
 .small-txt{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-weight: 400;
-    font-size: 48px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 36px;
     margin: 5%;
 }
 .large-txt{
     display: inline-block;
-    font-family: monospace;
-    font-size: 96px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 84px;
     margin: 5%;
 }
 .caret{
     display: inline-block;
+    animation: blinking 1s ease infinite;
 }
-
+@keyframes blinking {
+    0%{opacity: 0%;}
+    50%{opacity: 100%;}
+    100%{opacity: 0%;}
+    
+}
