@@ -50,7 +50,7 @@ body{
 .outer-box{
     height: 85%;
     width: 65%;
-    border: white 1px solid;
+    border: white 5px solid;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,6 +60,6 @@ body{
 .inner-box{
     height: 92.5%;
     width: 92.5%;
-    border: white 1px solid;
+    border: white 5px solid;
     border-radius: 5%;
 }
