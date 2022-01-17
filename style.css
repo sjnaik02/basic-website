@@ -71,12 +71,19 @@ body{
     .hero-txt{
         width: 100%;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
     }
     .small-txt,
     .large-txt{
         margin: 10% 10% 5% 10%;
     }
+    .small-txt{
+        font-size: 36px;
+    }
     .large-txt{
+        text-align: center;
+        font-size: 72px;
         margin-top: 0%;
     }
     .hero-display{
