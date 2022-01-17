@@ -1,13 +1,15 @@
+*{
+    --background : #000; 
+}
 body{
     margin: 0;
     padding: 0;
-    background-color: #323232;
+    background-color: var(--background);
 }
 .hero{
-    height: 100vh;
+    min-height: 100vh;
     width: 100vw;
     display: flex;
-    margin-left: 6.25%;
 }
 .hero-txt{
     width: 40%;
@@ -19,13 +21,13 @@ body{
 .small-txt{
     font-family: 'Poppins', sans-serif;
     font-size: 36px;
-    margin: 5%;
+    margin: 5% 20%;
 }
 .large-txt{
     display: inline-block;
     font-family: 'Roboto Mono', monospace;
     font-size: 84px;
-    margin: 5%;
+    margin: 5% 20%;
 }
 .caret{
     display: inline-block;
@@ -36,4 +38,28 @@ body{
     50%{opacity: 100%;}
     100%{opacity: 0%;}
     
+}
+
+.hero-display{
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.outer-box{
+    height: 85%;
+    width: 65%;
+    border: white 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+}
+
+.inner-box{
+    height: 92.5%;
+    width: 92.5%;
+    border: white 1px solid;
+    border-radius: 5%;
 }
