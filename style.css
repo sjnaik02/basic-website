@@ -4,12 +4,12 @@
 body{
     margin: 0;
     padding: 0;
-    background-color: var(--background);
 }
 .hero{
     min-height: 100vh;
     width: 100vw;
     display: flex;
+    background-color: var(--background);
 }
 .hero-txt{
     width: 40%;
