@@ -54,14 +54,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5%;
+    border-radius: 20px;
 }
 
 .inner-box{
-    height: 92.5%;
+    height: 94%;
     width: 92.5%;
     border: white 5px solid;
-    border-radius: 5%;
+    border-radius: 18.5px;
 }
 
 @media screen and (max-width: 1000px){
