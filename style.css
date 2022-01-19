@@ -14,8 +14,6 @@ body{
     width: 100vw;
     display: flex;
     background-color: var(--background);
-    justify-self: center;
-
 }
 .hero-txt{
     width: 40%;
@@ -68,6 +66,7 @@ body{
     width: 92.5%;
     border: white 5px solid;
     border-radius: 18.5px;
+    overflow-y: scroll;
 }
 
 @media screen and (max-width: 1000px){
