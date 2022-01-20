@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shourya Naik</title>
     <meta name="description" content="The digital home for all things Shourya Naik">
-    <script src="https://unpkg.com/petite-vue" defer init></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:wght@400;600;700&display=swap"
@@ -19,21 +18,44 @@
     <main class="hero">
         <section class="hero-txt">
             <h2 class="small-txt"> Hi! I'm </h2>
-            <h1 class="large-txt"> Shourya Naik<div class="caret">_</div></h1>
+            <h1 class="large-txt"> Shourya Naik<div class="caret">_</div>
+            </h1>
         </section>
         <section class="hero-display">
             <div class="outer-box">
-                <div class="inner-box">
+                <div v-scope="Container()" id="dynamic-display" class="inner-box">
                     <nav class="navigation">
-                        <button class="nav-tab"> About </button>
-                        <button class="nav-tab"> Projects </button>
-                        <button class="nav-tab"> Blog </button>
-                        <button class="nav-tab"> Get in touch</button>
+                        <button v-for="tab in tabs" v-bind:key="tab"
+                            v-bind:class="['nav-tab',{active: currentTab === tab}]" @click.prevent="currentTab = tab">
+                            {{ tab }}
+                        </button>
                     </nav>
+                    <div v-if="currentTab === 'About'">
+                        <div v-scope="AboutTab()" class="exp"></div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/petite-vue?module'
+        function Container() {
+            return {
+                currentTab: "About",
+                tabs: ["About", "Blog", "Projects", "Get in touch"],
+            }
+        }
+        function AboutTab() {
+            return {
+                $template: '<h3>About</h3>'
+            }
+        }
+        createApp({
+            Container,
+            AboutTab
+        }).mount("#dynamic-display");
+    </script>
 </body>
 
 </html>

@@ -103,7 +103,16 @@ body{
     visibility: visible;
     transform: scaleX(1);
 }
-
+.nav-tab.active{
+    color: #dcb941;
+}
+.nav-tab.active:before{
+    visibility: visible;
+    transform: scaleX(1);
+}
+.exp{
+    color: blue;
+}
 @media screen and (max-width: 1000px){
     .hero{
         flex-direction: column;
