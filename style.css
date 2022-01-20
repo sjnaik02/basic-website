@@ -68,6 +68,17 @@ body{
     border-radius: 18.5px;
     overflow-y: scroll;
 }
+.navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav-tab{
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid white;
+    font-size: 24px;
+}
 
 @media screen and (max-width: 1000px){
     .hero{
