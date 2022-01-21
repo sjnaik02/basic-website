@@ -101,14 +101,14 @@ body{
 }
 .nav-tab:hover:before{
     visibility: visible;
-    transform: scaleX(1);
+    transform: scaleX(0.8);
 }
 .nav-tab.active{
     color: #dcb941;
 }
 .nav-tab.active:before{
     visibility: visible;
-    transform: scaleX(1);
+    transform: scaleX(0.8);
 }
 .exp{
     color: #00FFFF;
