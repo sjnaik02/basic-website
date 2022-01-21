@@ -81,6 +81,8 @@ body{
     background-color: black;
     border: none;
     position: relative;
+    margin:0;
+    padding: 0;
 }
 .nav-tab:before{
     content: "";
