@@ -112,8 +112,18 @@ body{
     visibility: visible;
     transform: scaleX(0.8);
 }
-.exp{
-    color: #00FFFF;
+.text-container{
+    margin: 0 5%;
+}
+.lg-txt{
+    color: #fff;
+    font-size: 48px;
+    font-family: 'Poppins', sans-serif;
+}
+.sml-txt{
+    color: #eee;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
 }
 @media screen and (max-width: 1000px){
     .hero{

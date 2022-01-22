@@ -15,6 +15,81 @@
 </head>
 
 <body>
+    <script type="module">
+        import { createApp } from 'https://unpkg.com/petite-vue?module'
+        function Container() {
+            return {
+                currentTab: "About",
+                tabs: ["About", "Blog", "Projects", "Get in touch"],
+            }
+        }
+
+        function AboutTab() {
+            return {
+                $template: '#about',
+            }
+        }
+        
+        function BlogTab() {
+            return {
+                $template: '#blog',
+
+            }
+        }
+        function ProjectsTab() {
+            return {
+                $template: '#projects',
+
+            }
+        }
+        function GetInTouchTab() {
+            return {
+                $template: '#getintouch',
+
+            }
+        }
+        createApp({
+            Container,
+            AboutTab,
+            BlogTab,
+            ProjectsTab,
+            GetInTouchTab
+        }).mount()
+    </script>
+
+    <template id='about'>
+        <div class="text-container">
+            <h2 class="lg-txt">About</h2>
+            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit vitae corporis
+                ea, ab odio minus voluptas explicabo blanditiis. Veniam aperiam aspernatur culpa nobis voluptas
+                accusantium nisi dicta.</p>
+        </div>
+    </template>
+    <template id='blog'>
+        <div class="text-container">
+            <h2 class="lg-txt">Blog</h2>
+            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit vitae corporis
+                ea, ab odio minus voluptas explicabo blanditiis. Veniam aperiam aspernatur culpa nobis voluptas
+                accusantium nisi dicta.</p>
+        </div>
+    </template>
+    <template id='projects'>
+        <div class="text-container">
+            <h2 class="lg-txt">Projects</h2>
+            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit vitae corporis
+                ea, ab odio minus voluptas explicabo blanditiis. Veniam aperiam aspernatur culpa nobis voluptas
+                accusantium nisi dicta.</p>
+        </div>
+    </template>
+    <template id='getintouch'>
+        <div class="text-container">
+            <h2 class="lg-txt">Get in touch!</h2>
+            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit vitae corporis
+                ea, ab odio minus voluptas explicabo blanditiis. Veniam aperiam aspernatur culpa nobis voluptas
+                accusantium nisi dicta.</p>
+        </div>
+    </template>
+
     <main class="hero">
         <section class="hero-txt">
             <h1 class="small-txt"> Hi! I'm </h1>
@@ -30,32 +105,25 @@
                             {{ tab }}
                         </button>
                     </nav>
+
                     <div v-if="currentTab === 'About'">
-                        <div v-scope="AboutTab()" class="exp"></div>
+                        <div v-scope="AboutTab()"></div>
+                    </div>
+                    <div v-else-if="currentTab === 'Blog'">
+                        <div v-scope="BlogTab()"></div>
+                    </div>
+                    <div v-else-if="currentTab === 'Projects'">
+                        <div v-scope="ProjectsTab()"></div>
+                    </div>
+                    <div v-else>
+                        <div v-scope="GetInTouchTab()"></div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <script type="module">
-        import { createApp } from 'https://unpkg.com/petite-vue?module'
-        function Container() {
-            return {
-                currentTab: "About",
-                tabs: ["About", "Blog", "Projects", "Get in touch"],
-            }
-        }
-        function AboutTab() {
-            return {
-                $template: '<h3>About</h3>'
-            }
-        }
-        createApp({
-            Container,
-            AboutTab
-        }).mount("#dynamic-display");
-    </script>
+
 </body>
 
 </html>
