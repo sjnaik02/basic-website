@@ -21,6 +21,11 @@
             return {
                 currentTab: "About",
                 tabs: ["About", "Blog", "Projects", "Get in touch"],
+                burgerOpen: false,
+                mounted() {
+                    console.log('I am mounted')
+                },
+
             }
         }
 
@@ -29,7 +34,7 @@
                 $template: '#about',
             }
         }
-        
+
         function BlogTab() {
             return {
                 $template: '#blog',
@@ -60,7 +65,8 @@
     <template id='about'>
         <div class="text-container">
             <h2 class="lg-txt">About</h2>
-            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit vitae corporis
+            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit
+                vitae corporis
                 ea, ab odio minus voluptas explicabo blanditiis. Veniam aperiam aspernatur culpa nobis voluptas
                 accusantium nisi dicta.</p>
         </div>
@@ -68,7 +74,8 @@
     <template id='blog'>
         <div class="text-container">
             <h2 class="lg-txt">Blog</h2>
-            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit vitae corporis
+            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit
+                vitae corporis
                 ea, ab odio minus voluptas explicabo blanditiis. Veniam aperiam aspernatur culpa nobis voluptas
                 accusantium nisi dicta.</p>
         </div>
@@ -76,7 +83,8 @@
     <template id='projects'>
         <div class="text-container">
             <h2 class="lg-txt">Projects</h2>
-            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit vitae corporis
+            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit
+                vitae corporis
                 ea, ab odio minus voluptas explicabo blanditiis. Veniam aperiam aspernatur culpa nobis voluptas
                 accusantium nisi dicta.</p>
         </div>
@@ -84,7 +92,8 @@
     <template id='getintouch'>
         <div class="text-container">
             <h2 class="lg-txt">Get in touch!</h2>
-            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit vitae corporis
+            <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit
+                vitae corporis
                 ea, ab odio minus voluptas explicabo blanditiis. Veniam aperiam aspernatur culpa nobis voluptas
                 accusantium nisi dicta.</p>
         </div>
@@ -98,8 +107,13 @@
         </section>
         <section class="hero-display">
             <div class="outer-box">
-                <div v-scope="Container()" id="dynamic-display" class="inner-box">
-                    <nav class="navigation">
+                <div @vue:mounted="mounted()" v-scope="Container()" id="dynamic-display" class="inner-box">
+
+                    <div v-bind:class="['burger', {open: burgerOpen === true}]" @click="burgerOpen = !burgerOpen">
+                        <div class="burger-btn"></div>
+                    </div>
+
+                    <nav v-bind:class="['navigation', {visible: burgerOpen}]">
                         <button v-for="tab in tabs" v-bind:key="tab"
                             v-bind:class="['nav-tab',{active: currentTab === tab}]" @click.prevent="currentTab = tab">
                             {{ tab }}

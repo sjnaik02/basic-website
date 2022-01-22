@@ -125,6 +125,9 @@ body{
     font-size: 24px;
     font-family: 'Poppins', sans-serif;
 }
+.burger{
+    display: none;
+}
 @media screen and (max-width: 1000px){
     .hero{
         flex-direction: column;
@@ -157,8 +160,56 @@ body{
         align-items: center;
         justify-content: space-around;
         margin: 0;
+        display: none;
+    }
+    .navigation.visible{
+        display: flex;
     }
     .nav-tab{
         font-size: 32px;
+    }
+    .burger{
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        position: absolute;
+        margin-top: 5%;
+        margin-left: 55%;
+    }
+    .burger-btn{
+        width: 40px;
+        height: 6px;
+        border-radius: 5px;
+        background: #dcb941;
+        transition: all 500ms ease-in-out;
+    }
+    .burger-btn::after,
+    .burger-btn::before {
+        content: " ";
+        position: absolute;
+        width: 40px;
+        height: 6px;
+        border-radius: 5px;
+        background: #dcb941;
+        transition: all 500ms ease-in-out;
+    }
+    .burger-btn::before {
+        transform: translateY(-16px);
+    }
+    .burger-btn::after {
+        transform: translateY(16px);
+    }
+    .burger.open .burger-btn{
+        transform: translateX(-50px);
+        background: transparent;
+    }
+    .burger.open .burger-btn::before{
+        transform: rotate(45deg) translate(35px, -35px);
+    }
+    .burger.open .burger-btn::after{
+        transform: rotate(-45deg) translate(35px, 35px);
     }
 }
