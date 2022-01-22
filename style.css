@@ -67,6 +67,7 @@ body{
     border: white 5px solid;
     border-radius: 18.5px;
     overflow-y: scroll;
+    overflow-wrap: break-word;
 }
 .navigation{
     display: flex;
@@ -177,6 +178,8 @@ body{
 }
 .no-list{
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 @media screen and (max-width: 1000px){
     .hero{
