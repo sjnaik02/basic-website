@@ -25,7 +25,10 @@
                 mounted() {
                     console.log('I am mounted')
                 },
-
+                toggleTabs(name){
+                    this.currentTab = name;
+                    this.burgerOpen = false;
+                }
             }
         }
 
@@ -63,7 +66,7 @@
     </script>
 
     <template id='about'>
-        <div class="text-container">
+        <div>
             <h2 class="lg-txt">About</h2>
             <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit
                 vitae corporis
@@ -72,7 +75,7 @@
         </div>
     </template>
     <template id='blog'>
-        <div class="text-container">
+        <div>
             <h2 class="lg-txt">Blog</h2>
             <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit
                 vitae corporis
@@ -81,7 +84,7 @@
         </div>
     </template>
     <template id='projects'>
-        <div class="text-container">
+        <div>
             <h2 class="lg-txt">Projects</h2>
             <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit
                 vitae corporis
@@ -90,7 +93,7 @@
         </div>
     </template>
     <template id='getintouch'>
-        <div class="text-container">
+        <div>
             <h2 class="lg-txt">Get in touch!</h2>
             <p class="sml-txt">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla numquam dolore, impedit
                 vitae corporis
@@ -115,22 +118,24 @@
 
                     <nav v-bind:class="['navigation', {visible: burgerOpen}]">
                         <button v-for="tab in tabs" v-bind:key="tab"
-                            v-bind:class="['nav-tab',{active: currentTab === tab}]" @click.prevent="currentTab = tab">
+                            v-bind:class="['nav-tab',{active: currentTab === tab}]" @click="toggleTabs(tab)">
                             {{ tab }}
                         </button>
                     </nav>
 
-                    <div v-if="currentTab === 'About'">
-                        <div v-scope="AboutTab()"></div>
-                    </div>
-                    <div v-else-if="currentTab === 'Blog'">
-                        <div v-scope="BlogTab()"></div>
-                    </div>
-                    <div v-else-if="currentTab === 'Projects'">
-                        <div v-scope="ProjectsTab()"></div>
-                    </div>
-                    <div v-else>
-                        <div v-scope="GetInTouchTab()"></div>
+                    <div v-bind:class="['text-container', {hidden: burgerOpen === true}]">
+                        <div v-if="currentTab === 'About'">
+                            <div v-scope="AboutTab()"></div>
+                        </div>
+                        <div v-else-if="currentTab === 'Blog'">
+                            <div v-scope="BlogTab()"></div>
+                        </div>
+                        <div v-else-if="currentTab === 'Projects'">
+                            <div v-scope="ProjectsTab()"></div>
+                        </div>
+                        <div v-else>
+                            <div v-scope="GetInTouchTab()"></div>
+                        </div>
                     </div>
                 </div>
             </div>

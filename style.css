@@ -172,6 +172,9 @@ body{
 .burger{
     display: none;
 }
+.text-container.hidden{
+    display: none;
+}
 @media screen and (max-width: 1000px){
     .hero{
         flex-direction: column;
