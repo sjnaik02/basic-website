@@ -117,7 +117,9 @@ body{
     transform: scaleX(0.8);
 }
 .text-container{
-    margin: 0 5%;
+    margin: 0 4%;
+    display: flex;
+    flex-direction: column;
 }
 .lg-txt{
     color: #fff;
@@ -188,6 +190,17 @@ body{
     list-style: none;
     margin: 0;
     padding: 0;
+}
+.card{
+    background-color: #dcd941;
+    width: auto;
+    justify-self: center;
+    border: #dcd941 3px solid;
+    border-radius: 20px;
+    padding: 10px;
+}
+.card .sml-txt{
+    color: black;
 }
 @media screen and (max-width: 1000px){
     .hero{

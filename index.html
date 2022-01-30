@@ -9,14 +9,15 @@
     <meta name="description" content="The digital home for all things Shourya Naik">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto+Mono:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <script src="https://kit.fontawesome.com/fa20383d9c.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style.css" />
 </head>
 
 <body>
     <script type="module">
-        import { createApp } from 'https://unpkg.com/petite-vue?module'
+        import { createApp } from 'https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js'
         function Container() {
             return {
                 currentTab: "About",
@@ -25,7 +26,7 @@
                 mounted() {
                     console.log('I am mounted')
                 },
-                toggleTabs(name){
+                toggleTabs(name) {
                     this.currentTab = name;
                     this.burgerOpen = false;
                 }
@@ -41,19 +42,24 @@
         function BlogTab() {
             return {
                 $template: '#blog',
-
             }
         }
+
         function ProjectsTab() {
             return {
                 $template: '#projects',
-
             }
         }
+
         function GetInTouchTab() {
             return {
                 $template: '#getintouch',
+            }
+        }
 
+        function EmptyCard() {
+            return {
+                $template: '#emptycard',
             }
         }
         createApp({
@@ -61,38 +67,77 @@
             AboutTab,
             BlogTab,
             ProjectsTab,
-            GetInTouchTab
+            GetInTouchTab,
+            EmptyCard
         }).mount()
     </script>
+
+    <template id="emptycard">
+        <div class="card">
+            <p class="sml-txt">Looks like there's nothing to show here :( This site is a work in progress though, and new stuff is added all the time!</p>
+        </div>
+    </template>
 
     <template id='about'>
         <div>
             <h2 class="lg-txt">About</h2>
-            <p class="sml-txt">Welcome to the website! I'm an Electrical Engineering Student at Birla Institue of Science and Technology, Goa, India. 
-
+            <p class="sml-txt">
+                Welcome to the website! I'm an Electrical Engineering Student at Birla Institue of Science and
+                Technology, Goa, India.
+                <br>
+                <br>
+                I work with these languages and frameworks : <div class="lg-icons">
+                    <i class="fab fa-html5"></i>
+                    <i class="fab fa-css3-alt"></i>
+                    <i class="fab fa-js-square"></i>
+                    <i class="fab fa-bootstrap"></i>
+                    <i class="fab fa-sass"></i>
+                    <i class="fab fa-react"></i>
+                </div>
             </p>
+            <p class="sml-txt"> I also enjoy reading and debate in my free time :] </p>
         </div>
     </template>
+
     <template id='blog'>
         <div>
             <h2 class="lg-txt">Blog</h2>
-            <p class="sml-txt">I like to blog on Hashnode from time to time. Check out my posts <a href="https://blog.shouryanaik.com" class="sml-txt" target="_blank">here!</a> These are some of my most recent ones: </p>
+            <p class="sml-txt">I like to blog on Hashnode from time to time. Check out my posts <a
+                    href="https://blog.shouryanaik.com" class="sml-txt" target="_blank">here!</a> These are some of my
+                most recent ones: </p>
+                <div v-scope="EmptyCard()"></div>
         </div>
     </template>
+
     <template id='projects'>
         <div>
             <h2 class="lg-txt">Projects</h2>
-            <p class="sml-txt">While I love learning new technologies, I always have the most fun building projects! Here are some of my favourites: </p>
+            <p class="sml-txt">While I love learning new technologies, I always have the most fun building projects!
+                Here are some of my favourites: </p>
+            <div v-scope="EmptyCard()"></div>
         </div>
     </template>
+
     <template id='getintouch'>
         <div>
             <h2 class="lg-txt">Get in touch!</h2>
-            <p class="sml-txt">Thank you for checking out my website! Please feel free to reach out to say hello, point out a mistake, or just to send your favourite cat photo! I respond to all emails and DMs</p>
+            <p class="sml-txt">Thank you for checking out my website! Please feel free to reach out to say hello, point
+                out a mistake, or just to send your favourite cat photo! I respond to all emails and DMs</p>
             <ul class="no-list">
-                <li><p class="sml-txt">Twitter (<a class="sml-txt" href="https://twitter.com/sjnaik02" target="_blank"><i class="fab fa-twitter"></i> @sjnaik02</a>) is where I'm most active. Here you'll find tweets about my journey with software development, along with other good stuff!</p></li>
-                <li><p class="sml-txt"> Github (<a class="sml-txt" href="https://github.com/sjnaik02" target="_blank"><i class="fab fa-github"></i> @sjnaik02</a>) is where you can find the code for this website, along with my other projects</p></li>
-                <li><p class="sml-txt"> You can email me at : <a href="mailto:hello@shouryanaik.com" class="sml-txt"><i class="fas fa-envelope"></i>hello@shouryanaik.com </a></p></li>
+                <li>
+                    <p class="sml-txt">Twitter (<a class="sml-txt" href="https://twitter.com/sjnaik02"
+                            target="_blank"><i class="fab fa-twitter"></i> @sjnaik02</a>) is where I'm most active. Here
+                        you'll find tweets about my journey with software development, along with other good stuff!</p>
+                </li>
+                <li>
+                    <p class="sml-txt"> Github (<a class="sml-txt" href="https://github.com/sjnaik02" target="_blank"><i
+                                class="fab fa-github"></i> @sjnaik02</a>) is where you can find the code for this
+                        website, along with my other projects</p>
+                </li>
+                <li>
+                    <p class="sml-txt"> You can email me at : <a href="mailto:hello@shouryanaik.com" class="sml-txt"><i
+                                class="fas fa-envelope"></i>hello@shouryanaik.com </a></p>
+                </li>
             </ul>
             <br>
         </div>
