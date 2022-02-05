@@ -52,17 +52,20 @@
                     {
                         name: 'Stoic Quotes App',
                         icon: '<i class="fas fa-brain"></i>',
-                        description: 'A simple website which displays the timeless wisdom of stoic philosophers'
+                        description: 'A simple website which displays the timeless wisdom of stoic philosophers',
+            url: 'https://codepen.io/sjnaik02/full/yLzggbL'
                     },
                     {
                         name: 'Calculator',
                         icon: '<i class="fas fa-calculator"></i>',
-                        description: 'A calculator. Honestly not much more to add here. It does the job though!'
+                        description: 'A calculator. Honestly not much more to add here. It does the job though!',
+                        url: 'https://codepen.io/sjnaik02/full/BawYqZJ'
                     },
                     {
                         name: '25-5 timer',
                         icon: '<i class="far fa-clock"></i>',
-                        description: "A pomodoro timer. I'm working on making this better"
+                        description: "A pomodoro timer. I'm working on making this better",
+                        url: 'https://gifted-sinoussi-15339d.netlify.app/'
                     },
                 ],
             }
@@ -86,6 +89,7 @@
                 name: props.name,
                 icon: props.icon,
                 description: props.description,
+                url : props.url
             }
         }
 
@@ -101,9 +105,11 @@
     </script>
 
     <template id="projectCard">
-        <article class="card">
-         <p class="lg-icons" v-html="icon"></p> <p class="sml-txt">  {{name}} : {{description}} </p>
-        </article>
+        <a :href=`${url}` target="_blank">
+            <article class="card">
+             <p class="lg-icons" v-html="icon"></p> <p class="sml-txt">  {{name}} : {{description}} </p>
+            </article>
+        </a>
     </template>
 
     <template id="emptycard">
@@ -151,7 +157,7 @@
             <p class="sml-txt">While I love learning new technologies, I always have the most fun building projects!
                 Here are some of my favourites: </p>
             <div v-for="(project,i) in Projects" :key="i">
-                <div v-scope="ProjectCard({ name: project.name, icon: project.icon, description: project.description })"></div>
+                <div v-scope="ProjectCard({ name: project.name, icon: project.icon, description: project.description, url : project.url })"></div>
             </div>
         </div>
     </template>
