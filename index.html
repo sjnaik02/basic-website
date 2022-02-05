@@ -17,7 +17,7 @@
 
 <body>
     <script type="module">
-        import { createApp } from 'https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js'
+        import { createApp } from 'https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js';
         function Container() {
             return {
                 currentTab: "About",
@@ -48,6 +48,23 @@
         function ProjectsTab() {
             return {
                 $template: '#projects',
+                Projects : [
+                    {
+                        name: 'Stoic Quotes App',
+                        icon: '<i class="fas fa-brain"></i>',
+                        description: 'A simple website which displays the timeless wisdom of stoic philosophers'
+                    },
+                    {
+                        name: 'Calculator',
+                        icon: '<i class="fas fa-calculator"></i>',
+                        description: 'A calculator. Honestly not much more to add here. It does the job though!'
+                    },
+                    {
+                        name: '25-5 timer',
+                        icon: '<i class="far fa-clock"></i>',
+                        description: "A pomodoro timer. I'm working on making this better"
+                    },
+                ],
             }
         }
 
@@ -62,18 +79,35 @@
                 $template: '#emptycard',
             }
         }
+
+        function ProjectCard(props) {
+            return {
+                $template: '#projectCard',
+                name: props.name,
+                icon: props.icon,
+                description: props.description,
+            }
+        }
+
         createApp({
             Container,
             AboutTab,
             BlogTab,
             ProjectsTab,
             GetInTouchTab,
-            EmptyCard
+            EmptyCard,
+            ProjectCard
         }).mount()
     </script>
 
+    <template id="projectCard">
+        <article class="card">
+         <p class="lg-icons" v-html="icon"></p> <p class="sml-txt">  {{name}} : {{description}} </p>
+        </article>
+    </template>
+
     <template id="emptycard">
-        <div class="card">
+        <div class="card-empty">
             <p class="sml-txt">Looks like there's nothing to show here :( This site is a work in progress though, and
                 new stuff is added all the time!</p>
         </div>
@@ -116,7 +150,9 @@
             <h2 class="lg-txt">Projects</h2>
             <p class="sml-txt">While I love learning new technologies, I always have the most fun building projects!
                 Here are some of my favourites: </p>
-            <div v-scope="EmptyCard()"></div>
+            <div v-for="(project,i) in Projects" :key="i">
+                <div v-scope="ProjectCard({ name: project.name, icon: project.icon, description: project.description })"></div>
+            </div>
         </div>
     </template>
 
