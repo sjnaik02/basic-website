@@ -211,6 +211,9 @@ body{
 .card .sml-txt{
     color: black;
 }
+.note{
+    opacity: 70%;
+}
 @media screen and (max-width: 1000px){
     .hero{
         flex-direction: column;

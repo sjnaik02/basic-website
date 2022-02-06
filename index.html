@@ -156,6 +156,7 @@
             <h2 class="lg-txt">Projects</h2>
             <p class="sml-txt">While I love learning new technologies, I always have the most fun building projects!
                 Here are some of my favourites: </p>
+            <p class="sml-txt note"> (These are best viewed on the desktop)</p>
             <div v-for="(project,i) in Projects" :key="i">
                 <div v-scope="ProjectCard({ name: project.name, icon: project.icon, description: project.description, url : project.url })"></div>
             </div>
